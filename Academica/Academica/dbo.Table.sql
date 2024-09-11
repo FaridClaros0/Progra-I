@@ -1,8 +1,10 @@
-﻿CREATE TABLE [dbo].[Table]
-(
-	[Id] INT NOT NULL PRIMARY KEY, 
-    [Nombre] CHAR(70) NOT NULL, 
-    [Localidad] CHAR(70) NOT NULL, 
-    [Dui] CHAR(10) NULL, 
-    [Telefono] CHAR(10) NULL
-)
+﻿CREATE TABLE [dbo].[Table] (
+    [IdAlumno]  INT        NOT NULL,
+    [Codigo]    CHAR (10)  NOT NULL,
+    [Nombre]    CHAR (75)  NOT NULL,
+    [Direccion] CHAR (150) NOT NULL,
+    [Dui]       CHAR (10)  NULL,
+    [Telefono]  CHAR (10)  NULL,
+    PRIMARY KEY CLUSTERED ([IdAlumno] ASC)
+);
+
