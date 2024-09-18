@@ -86,5 +86,42 @@ namespace Academica
             posicion = 0;
             mostrarDatosAlumnos();
         }
+
+        private void estadoControles(Boolean estado)
+        {
+            grbDatosAlumno.Enabled = estado;
+            grbNavegacionAlumno.Enabled = !estado;
+            btnEliminarAlumno.Enabled = !estado;
+            btnBuscarAlumno.Enabled = !estado;
+        }
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            if (btnNuevoAlumno.Text == "Nuevo")
+            {
+                btnNuevoAlumno.Text = "Guardar";
+                btnModificarAlumno.Text = "cancelar";
+                estadoControles(true);
+            } else {//Guardar
+                btnNuevoAlumno.Text = "Nuevo";
+                btnModificarAlumno.Text = "Modificar";
+                estadoControles(false);
+            }
+        }
+
+        private void btnModificarAlumno_Click(object sender, EventArgs e)
+        {
+            if (btnModificarAlumno.Text == "Modificar")
+            {
+                btnNuevoAlumno.Text = "Guardar";
+                btnModificarAlumno.Text = "cancelar";
+                estadoControles(true);
+            }
+            else
+            {//Cancelar
+                btnNuevoAlumno.Text = "Nuevo";
+                btnModificarAlumno.Text = "Modificar";
+                estadoControles(false);
+            }
+        }
     }
 }

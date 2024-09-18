@@ -49,7 +49,7 @@
             this.btnBuscarAlumno = new System.Windows.Forms.Button();
             this.btnEliminarAlumno = new System.Windows.Forms.Button();
             this.btnModificarAlumno = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnNuevoAlumno = new System.Windows.Forms.Button();
             this.grbDatosAlumno.SuspendLayout();
             this.grbNavegacionAlumno.SuspendLayout();
             this.grbEdicionAlumno.SuspendLayout();
@@ -67,6 +67,7 @@
             this.grbDatosAlumno.Controls.Add(this.txtNombreAlumno);
             this.grbDatosAlumno.Controls.Add(this.lblCodigoAlumno);
             this.grbDatosAlumno.Controls.Add(this.txtCodigoAlumno);
+            this.grbDatosAlumno.Enabled = false;
             this.grbDatosAlumno.Location = new System.Drawing.Point(48, 36);
             this.grbDatosAlumno.Margin = new System.Windows.Forms.Padding(4);
             this.grbDatosAlumno.Name = "grbDatosAlumno";
@@ -251,7 +252,7 @@
             this.grbEdicionAlumno.Controls.Add(this.btnBuscarAlumno);
             this.grbEdicionAlumno.Controls.Add(this.btnEliminarAlumno);
             this.grbEdicionAlumno.Controls.Add(this.btnModificarAlumno);
-            this.grbEdicionAlumno.Controls.Add(this.btnNuevo);
+            this.grbEdicionAlumno.Controls.Add(this.btnNuevoAlumno);
             this.grbEdicionAlumno.Location = new System.Drawing.Point(384, 356);
             this.grbEdicionAlumno.Margin = new System.Windows.Forms.Padding(4);
             this.grbEdicionAlumno.Name = "grbEdicionAlumno";
@@ -289,21 +290,23 @@
             this.btnModificarAlumno.Location = new System.Drawing.Point(113, 34);
             this.btnModificarAlumno.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificarAlumno.Name = "btnModificarAlumno";
-            this.btnModificarAlumno.Size = new System.Drawing.Size(131, 46);
+            this.btnModificarAlumno.Size = new System.Drawing.Size(146, 46);
             this.btnModificarAlumno.TabIndex = 4;
             this.btnModificarAlumno.Text = "Modificar";
             this.btnModificarAlumno.UseVisualStyleBackColor = true;
+            this.btnModificarAlumno.Click += new System.EventHandler(this.btnModificarAlumno_Click);
             // 
-            // btnNuevo
+            // btnNuevoAlumno
             // 
-            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Location = new System.Drawing.Point(8, 34);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(97, 46);
-            this.btnNuevo.TabIndex = 3;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevoAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoAlumno.Location = new System.Drawing.Point(8, 34);
+            this.btnNuevoAlumno.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNuevoAlumno.Name = "btnNuevoAlumno";
+            this.btnNuevoAlumno.Size = new System.Drawing.Size(107, 46);
+            this.btnNuevoAlumno.TabIndex = 3;
+            this.btnNuevoAlumno.Text = "Nuevo";
+            this.btnNuevoAlumno.UseVisualStyleBackColor = true;
+            this.btnNuevoAlumno.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // Form1
             // 
@@ -347,7 +350,7 @@
         private System.Windows.Forms.GroupBox grbEdicionAlumno;
         private System.Windows.Forms.Button btnEliminarAlumno;
         private System.Windows.Forms.Button btnModificarAlumno;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnNuevoAlumno;
         private System.Windows.Forms.Label lblRegistrosAlumnos;
         private System.Windows.Forms.Button btnBuscarAlumno;
     }
