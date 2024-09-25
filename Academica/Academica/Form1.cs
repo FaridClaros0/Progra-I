@@ -33,6 +33,7 @@ namespace Academica
             ds = objConexion.obtenerdatos();
             miTabla = ds.Tables["alumnos"];
             miTabla.PrimaryKey = new DataColumn[] { miTabla.Columns["idAlumno"] };
+            grdDatosAlumnos.DataSource = miTabla;
             mostrarDatosAlumnos();
         }
 
@@ -100,12 +101,35 @@ namespace Academica
             {
                 btnNuevoAlumno.Text = "Guardar";
                 btnModificarAlumno.Text = "cancelar";
+                accion = "nuevo"; ;
                 estadoControles(true);
+                limpiarcajas();
             } else {//Guardar
-                btnNuevoAlumno.Text = "Nuevo";
-                btnModificarAlumno.Text = "Modificar";
-                estadoControles(false);
+                String[] alumnos = {
+                    accion, miTabla.Rows[posicion].ItemArray[0].ToString(),
+                    txtCodigoAlumno.Text, txtNombreAlumno.Text, txtDireccionAlumno.Text, txtTelefonoAlumno.Text, txtDuiAlumno.Text
+                };
+                String respuesta = objConexion.administrarAlumnos(alumnos);
+                if (respuesta != "1")
+                {
+                    MessageBox.Show(respuesta, "Error en el registro de alumnos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    btnNuevoAlumno.Text = "Nuevo";
+                    btnModificarAlumno.Text = "Modificar";
+                    estadoControles(false);
+                    actualizarDs();
+                }
             }
+        }
+        void limpiarcajas()
+        {
+            txtCodigoAlumno.Text = "";
+            txtNombreAlumno.Text = "";
+            txtDireccionAlumno.Text = "";
+            txtTelefonoAlumno.Text = "";
+            txtDuiAlumno.Text = "";
         }
 
         private void btnModificarAlumno_Click(object sender, EventArgs e)
@@ -114,14 +138,63 @@ namespace Academica
             {
                 btnNuevoAlumno.Text = "Guardar";
                 btnModificarAlumno.Text = "cancelar";
+                accion = "modificar";
                 estadoControles(true);
             }
             else
             {//Cancelar
+                mostrarDatosAlumnos();
                 btnNuevoAlumno.Text = "Nuevo";
                 btnModificarAlumno.Text = "Modificar";
                 estadoControles(false);
             }
+        }
+
+        private void btnEliminarAlumno_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Esta seguro de eliminar a " + txtNombreAlumno.Text.Trim() + "?", "Eliminar alumnos", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                String[] alumnos = {
+                    "eliminar", miTabla.Rows[posicion].ItemArray[0].ToString()
+                };
+                String respuesta = objConexion.administrarAlumnos(alumnos);
+                if (respuesta != "1")
+                {
+                    MessageBox.Show(respuesta, "Error en el registro de alumnos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    posicion = 0;
+                    actualizarDs();
+                    mostrarDatosAlumnos();
+                }
+            }
+        }
+
+        private void filtrarDatos(String filtro)
+        {
+            DataView dv = miTabla.DefaultView;
+            dv.RowFilter = "codigo like '%" + filtro + "%' OR nombre like '%" + filtro + "%'";
+            grdDatosAlumnos.DataSource = dv;
+        }
+        private void txtBuscarAlumnos_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtrarDatos(txtBuscarAlumnos.Text);
+           // if (e.KeyValue == 13)
+            //{//tecla enter
+                seleccionarAllumno();
+                //}
+            }
+
+            private void seleccionarAllumno()
+        {
+            posicion = miTabla.Rows.IndexOf(miTabla.Rows.Find(grdDatosAlumnos.CurrentRow.Cells["idAlumno"].Value.ToString()));
+            mostrarDatosAlumnos();
+        }
+        private void grdDatosAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            seleccionarAllumno();
         }
     }
 }
