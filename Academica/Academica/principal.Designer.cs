@@ -77,7 +77,7 @@
             this.notasToolStripMenuItem,
             this.notasToolStripMenuItem1});
             this.aplicacionToolStripMenuItem.Name = "aplicacionToolStripMenuItem";
-            this.aplicacionToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
+            this.aplicacionToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.aplicacionToolStripMenuItem.Text = "Aplicacion";
             // 
             // alumnosToolStripMenuItem
@@ -102,6 +102,7 @@
             this.docentesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.docentesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.docentesToolStripMenuItem.Text = "Docentes";
+            this.docentesToolStripMenuItem.Click += new System.EventHandler(this.docentesToolStripMenuItem_Click);
             // 
             // notasToolStripMenuItem
             // 
