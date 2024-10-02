@@ -198,6 +198,9 @@ namespace Academica
             }
         }
 
-       
+        private void grdDatosMateria_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            seleccionarMateria();
+        }
     }
 }
