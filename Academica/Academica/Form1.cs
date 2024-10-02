@@ -92,9 +92,7 @@ namespace Academica
         {
             grbDatosAlumno.Enabled = estado;
             grbNavegacionAlumno.Enabled = !estado;
-            btnEliminarAlumno.Enabled = !estado;
-            btnBuscarAlumno.Enabled = !estado;
-        }
+            btnEliminarAlumno.Enabled = !estado; }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             if (btnNuevoAlumno.Text == "Nuevo")
@@ -189,8 +187,15 @@ namespace Academica
 
             private void seleccionarAllumno()
         {
-            posicion = miTabla.Rows.IndexOf(miTabla.Rows.Find(grdDatosAlumnos.CurrentRow.Cells["idAlumno"].Value.ToString()));
-            mostrarDatosAlumnos();
+            try
+            {
+                posicion = miTabla.Rows.IndexOf(miTabla.Rows.Find(grdDatosAlumnos.CurrentRow.Cells["idAlumno"].Value.ToString()));
+                mostrarDatosAlumnos();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error: Registro NO encontrado", "Error en la seleccion de alumno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void grdDatosAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -27,9 +27,13 @@ namespace Academica
         {
             ds.Clear();
             misComandos.Connection = miConexion;
+
             misComandos.CommandText = "SELECT * FROM alumnos";
             miAdaptor.SelectCommand = misComandos;
             miAdaptor.Fill(ds, "alumnos");
+
+            misComandos.CommandText = "SELECT * FROM Materias";
+            miAdaptor.Fill(ds, "Materias");
 
             return ds;
         }
@@ -54,6 +58,26 @@ namespace Academica
             {
 
             }
+        }
+
+        public String administrarMaterias(String[] datos)
+        {
+            String sql = "";
+            if (datos[0] == "nuevo")
+            {
+                sql = "INSERT INTO Materias(codigo, nombre, uv) VALUES('" +
+                    datos[2] + "','" + datos[3] + "','" + datos[4] + "')";
+            }
+            else if (datos[0] == "modificar")
+            {
+                sql = "UPDATE Materias SET codigo='" + datos[2] + "', nombre='" + datos[3] + "', uv='" + datos[4] +
+                    "' WHERE idMateria=" + datos[1];
+            }
+            else if (datos[0] == "eliminar")
+            {
+                sql = "DELETE FROM Materias WHERE idMateria=" + datos[1];
+            }
+            return ejecutarSQL(sql);
         }
         private String ejecutarSQL(String sql)
         {
