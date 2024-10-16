@@ -37,6 +37,7 @@
             this.docentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notasToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.notasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -75,7 +76,8 @@
             this.materiasToolStripMenuItem,
             this.docentesToolStripMenuItem,
             this.notasToolStripMenuItem,
-            this.notasToolStripMenuItem1});
+            this.notasToolStripMenuItem1,
+            this.usuariosToolStripMenuItem});
             this.aplicacionToolStripMenuItem.Name = "aplicacionToolStripMenuItem";
             this.aplicacionToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.aplicacionToolStripMenuItem.Text = "Aplicacion";
@@ -84,7 +86,7 @@
             // 
             this.alumnosToolStripMenuItem.Name = "alumnosToolStripMenuItem";
             this.alumnosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.alumnosToolStripMenuItem.Text = "Alumnos";
             this.alumnosToolStripMenuItem.Click += new System.EventHandler(this.alumnosToolStripMenuItem_Click);
             // 
@@ -92,7 +94,7 @@
             // 
             this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
             this.materiasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.materiasToolStripMenuItem.Text = "Materias";
             this.materiasToolStripMenuItem.Click += new System.EventHandler(this.materiasToolStripMenuItem_Click);
             // 
@@ -100,21 +102,29 @@
             // 
             this.docentesToolStripMenuItem.Name = "docentesToolStripMenuItem";
             this.docentesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.docentesToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.docentesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.docentesToolStripMenuItem.Text = "Docentes";
             this.docentesToolStripMenuItem.Click += new System.EventHandler(this.docentesToolStripMenuItem_Click);
             // 
             // notasToolStripMenuItem
             // 
             this.notasToolStripMenuItem.Name = "notasToolStripMenuItem";
-            this.notasToolStripMenuItem.Size = new System.Drawing.Size(204, 6);
+            this.notasToolStripMenuItem.Size = new System.Drawing.Size(221, 6);
             // 
             // notasToolStripMenuItem1
             // 
             this.notasToolStripMenuItem1.Name = "notasToolStripMenuItem1";
             this.notasToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.notasToolStripMenuItem1.Size = new System.Drawing.Size(207, 26);
+            this.notasToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.notasToolStripMenuItem1.Text = "Notas";
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // principal
             // 
@@ -146,5 +156,6 @@
         private System.Windows.Forms.ToolStripMenuItem docentesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator notasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
     }
 }

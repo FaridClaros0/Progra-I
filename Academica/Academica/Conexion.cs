@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data;// Esta libreria nos servira para conectarnos a la BD.
 using System.Data.SqlClient; // Libreria necesaria para conectarnos a sql server.
 
+//integrantes Farid Ernesto Claros Arias
+//            Mauricio Antonio Maravilla Herrera
 
 namespace Academica
 {
@@ -37,6 +39,9 @@ namespace Academica
 
             misComandos.CommandText = "SELECT * FROM docentes";
             miAdaptor.Fill(ds, "docentes");
+
+            misComandos.CommandText = "SELECT * FROM usuarios";
+            miAdaptor.Fill(ds, "usuarios");
 
             return ds;
         }
@@ -103,6 +108,29 @@ namespace Academica
                 sql = "DELETE FROM Materias WHERE idMateria=" + datos[1];
             }
             return ejecutarSQL(sql);
+        }
+
+        public String administrarUsuarios(String[] datos)
+        {
+            String sql = "";
+            if (datos[0] == "agregar")
+            {
+                sql = "INSERT INTO usuario(usuario, clave, nombre, direccion, telefono) VALUES('" +
+                    datos[2] + "','" + datos[3] + "','" + datos[4] + "','" + datos[5] + "','" + datos[6] + "')";
+            }
+            else if (datos[0] == "modificar")
+            {
+                sql = "UPDATE usuarios SET usuario='" + datos[2] + "', clave='" + datos[3] + "', nombre='" + datos[4] + "', direccion='" +
+                    datos[5] + "', telefono='" + datos[6] + "' WHERE idUsuario=" + datos[1];
+            }
+            else if (datos[0] == "eliminar")
+            {
+                sql = "DELETE FROM usuario WHERE idUsuario=" + datos[1];
+            }
+            return ejecutarSQL(sql);
+            {
+
+            }
         }
         private String ejecutarSQL(String sql)
         {
