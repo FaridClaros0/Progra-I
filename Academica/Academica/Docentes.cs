@@ -167,7 +167,7 @@ namespace Academica
                 String[] docentes = {
                     "eliminar", miTabla.Rows[posicion].ItemArray[0].ToString()
                 };
-                String respuesta = objConexion.administrarMaterias(docentes);
+                String respuesta = objConexion.administrarDocentes(docentes);
                 if (respuesta != "1")
                 {
                     MessageBox.Show(respuesta, "Error en el registro de docente", MessageBoxButtons.OK, MessageBoxIcon.Error);

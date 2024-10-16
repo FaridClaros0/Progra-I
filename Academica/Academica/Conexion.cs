@@ -78,7 +78,7 @@ namespace Academica
             }
             else if (datos[0] == "eliminar")
             {
-                sql = "DELETE FROM alumnos WHERE idDocente=" + datos[1];
+                sql = "DELETE FROM docentes WHERE idDocente=" + datos[1];
             }
             return ejecutarSQL(sql);
             {
